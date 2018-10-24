@@ -1,0 +1,166 @@
+namespace TrackerModuleV1._0.Migrations.PTM
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class InitialCreatexc : DbMigration
+    {
+        public override void Up()
+        {
+            RenameTable(name: "dbo.PartProject", newName: "ProjectPart");
+            RenameTable(name: "dbo.ProjectIdUserId", newName: "ProjectUser");
+            DropForeignKey("dbo.Level", "projectId", "dbo.Project");
+            DropForeignKey("dbo.Part", "CreatedUserId", "dbo.User");
+            
+            DropForeignKey("dbo.PartProject", "PartId", "dbo.Part");
+            DropForeignKey("dbo.PartLevel", "FK_dbo.PartLevel_dbo.Part_Part_PartId");
+            DropForeignKey("dbo.PartLevel", "PartId", "dbo.Part");
+            DropForeignKey("dbo.ProjectIdUserId", "UserId", "dbo.User");
+            DropForeignKey("dbo.Part", "ApproveBy_UserId", "dbo.User");
+            DropForeignKey("dbo.ProjectPart", "FK_dbo.PartProject_dbo.Part_ProjectId");
+            DropForeignKey("dbo.ProjectPart", "FK_dbo.PartProject_dbo.Project_PartId");
+            DropForeignKey("dbo.PartProject", "ProjectId", "dbo.Project");
+            DropForeignKey("dbo.ProjectUser", "FK_dbo.UserProjects_dbo.Users_User_UserId");
+            DropForeignKey("dbo.ProjectUser", "FK_dbo.UserProjects_dbo.Projects_Project_ProjectId");
+            DropForeignKey("dbo.ProjectIdUserId", "ProjectId", "dbo.Project");
+            DropIndex("dbo.Level", new[] { "projectId" });
+            DropIndex("dbo.Part", new[] { "CreatedUserId" });
+            DropIndex("dbo.Part", new[] { "ApproveBy_UserId" });
+            DropIndex("dbo.ProjectPart", new[] { "ProjectId" });
+            DropIndex("dbo.ProjectPart", new[] { "PartId" });
+            DropIndex("dbo.ProjectUser", new[] { "UserId" });
+            DropIndex("dbo.ProjectUser", new[] { "ProjectId" });
+            DropIndex("dbo.PartLevel", new[] { "PartId" });
+            RenameColumn(table: "dbo.PartLevel", name: "PartId", newName: "Part_PartId");
+            RenameColumn(table: "dbo.PartLevel", name: "levelId", newName: "Level_levelId");
+            RenameColumn(table: "dbo.ProjectPart", name: "ProjectId", newName: "Project_ProjectId");
+            RenameColumn(table: "dbo.ProjectPart", name: "PartId", newName: "Part_PartId");
+            RenameColumn(table: "dbo.ProjectUser", name: "UserId", newName: "User_UserId");
+            RenameColumn(table: "dbo.ProjectUser", name: "ProjectId", newName: "Project_ProjectId");
+            RenameIndex(table: "dbo.PartLevel", name: "IX_levelId", newName: "IX_Level_levelId");
+            DropPrimaryKey("dbo.Part");
+            DropPrimaryKey("dbo.User");
+            DropPrimaryKey("dbo.Project");
+            DropPrimaryKey("dbo.PartLevel");
+            DropPrimaryKey("dbo.ProjectPart");
+            DropPrimaryKey("dbo.ProjectUser");
+            AddColumn("dbo.Part", "ApprovedUserId", c => c.String());
+            AddColumn("dbo.Part", "User_UserId", c => c.String(maxLength: 128));
+            AddColumn("dbo.Part", "CreatedBy_UserId", c => c.String(maxLength: 128));
+            AlterColumn("dbo.Level", "projectId", c => c.String(maxLength: 128));
+            DropColumn("dbo.Part", "PartId");
+            AddColumn("dbo.Part", "PartId", c => c.String(nullable: false, maxLength: 128));
+            //AlterColumn("dbo.Part", "PartId", c => c.String(nullable: false, maxLength: 128));
+            AlterColumn("dbo.Part", "CreatedUserId", c => c.String());
+            AlterColumn("dbo.Part", "ApproveBy_UserId", c => c.String(maxLength: 128));
+            DropColumn("dbo.User", "UserId");
+            AddColumn("dbo.User", "UserId", c => c.String(nullable: false, maxLength: 128));
+            //AlterColumn("dbo.User", "UserId", c => c.String(nullable: false, maxLength: 128));
+            DropColumn("dbo.Project", "ProjectId");
+            AddColumn("dbo.Project", "ProjectId", c => c.String(nullable: false, maxLength: 128));
+            //AlterColumn("dbo.Project", "ProjectId", c => c.String(nullable: false, maxLength: 128));
+            AlterColumn("dbo.PartLevel", "Part_PartId", c => c.String(nullable: false, maxLength: 128));
+            AlterColumn("dbo.ProjectPart", "Project_ProjectId", c => c.String(nullable: false, maxLength: 128));
+            AlterColumn("dbo.ProjectPart", "Part_PartId", c => c.String(nullable: false, maxLength: 128));
+            AlterColumn("dbo.ProjectUser", "User_UserId", c => c.String(nullable: false, maxLength: 128));
+            AlterColumn("dbo.ProjectUser", "Project_ProjectId", c => c.String(nullable: false, maxLength: 128));
+            AddPrimaryKey("dbo.Part", "PartId");
+            AddPrimaryKey("dbo.User", "UserId");
+            AddPrimaryKey("dbo.Project", "ProjectId");
+            AddPrimaryKey("dbo.PartLevel", new[] { "Part_PartId", "Level_levelId" });
+            AddPrimaryKey("dbo.ProjectPart", new[] { "Project_ProjectId", "Part_PartId" });
+            AddPrimaryKey("dbo.ProjectUser", new[] { "Project_ProjectId", "User_UserId" });
+            CreateIndex("dbo.Level", "projectId");
+            CreateIndex("dbo.Part", "User_UserId");
+            CreateIndex("dbo.Part", "ApproveBy_UserId");
+            CreateIndex("dbo.Part", "CreatedBy_UserId");
+            CreateIndex("dbo.ProjectPart", "Project_ProjectId");
+            CreateIndex("dbo.ProjectPart", "Part_PartId");
+            CreateIndex("dbo.ProjectUser", "Project_ProjectId");
+            CreateIndex("dbo.ProjectUser", "User_UserId");
+            CreateIndex("dbo.PartLevel", "Part_PartId");
+            AddForeignKey("dbo.Level", "projectId", "dbo.Project", "ProjectId");
+            AddForeignKey("dbo.Part", "CreatedBy_UserId", "dbo.User", "UserId");
+            AddForeignKey("dbo.Part", "User_UserId", "dbo.User", "UserId");
+            AddForeignKey("dbo.ProjectPart", "Part_PartId", "dbo.Part", "PartId", cascadeDelete: true);
+            AddForeignKey("dbo.PartLevel", "Part_PartId", "dbo.Part", "PartId", cascadeDelete: true);
+            AddForeignKey("dbo.ProjectUser", "User_UserId", "dbo.User", "UserId", cascadeDelete: true);
+            AddForeignKey("dbo.Part", "ApproveBy_UserId", "dbo.User", "UserId");
+            AddForeignKey("dbo.ProjectPart", "Project_ProjectId", "dbo.Project", "ProjectId", cascadeDelete: true);
+            AddForeignKey("dbo.ProjectUser", "Project_ProjectId", "dbo.Project", "ProjectId", cascadeDelete: true);
+        }
+        
+        public override void Down()
+        {
+            DropForeignKey("dbo.ProjectUser", "Project_ProjectId", "dbo.Project");
+            DropForeignKey("dbo.ProjectPart", "Project_ProjectId", "dbo.Project");
+            DropForeignKey("dbo.Part", "ApproveBy_UserId", "dbo.User");
+            DropForeignKey("dbo.ProjectUser", "User_UserId", "dbo.User");
+            DropForeignKey("dbo.PartLevel", "Part_PartId", "dbo.Part");
+            DropForeignKey("dbo.ProjectPart", "Part_PartId", "dbo.Part");
+            DropForeignKey("dbo.Part", "User_UserId", "dbo.User");
+            DropForeignKey("dbo.Part", "CreatedBy_UserId", "dbo.User");
+            DropForeignKey("dbo.Level", "projectId", "dbo.Project");
+            DropIndex("dbo.PartLevel", new[] { "Part_PartId" });
+            DropIndex("dbo.ProjectUser", new[] { "User_UserId" });
+            DropIndex("dbo.ProjectUser", new[] { "Project_ProjectId" });
+            DropIndex("dbo.ProjectPart", new[] { "Part_PartId" });
+            DropIndex("dbo.ProjectPart", new[] { "Project_ProjectId" });
+            DropIndex("dbo.Part", new[] { "CreatedBy_UserId" });
+            DropIndex("dbo.Part", new[] { "ApproveBy_UserId" });
+            DropIndex("dbo.Part", new[] { "User_UserId" });
+            DropIndex("dbo.Level", new[] { "projectId" });
+            DropPrimaryKey("dbo.ProjectUser");
+            DropPrimaryKey("dbo.ProjectPart");
+            DropPrimaryKey("dbo.PartLevel");
+            DropPrimaryKey("dbo.Project");
+            DropPrimaryKey("dbo.User");
+            DropPrimaryKey("dbo.Part");
+            AlterColumn("dbo.ProjectUser", "Project_ProjectId", c => c.Int(nullable: false));
+            AlterColumn("dbo.ProjectUser", "User_UserId", c => c.Int(nullable: false));
+            AlterColumn("dbo.ProjectPart", "Part_PartId", c => c.Int(nullable: false));
+            AlterColumn("dbo.ProjectPart", "Project_ProjectId", c => c.Int(nullable: false));
+            AlterColumn("dbo.PartLevel", "Part_PartId", c => c.Int(nullable: false));
+            AlterColumn("dbo.Project", "ProjectId", c => c.Int(nullable: false, identity: true));
+            AlterColumn("dbo.User", "UserId", c => c.Int(nullable: false, identity: true));
+            AlterColumn("dbo.Part", "ApproveBy_UserId", c => c.Int());
+            AlterColumn("dbo.Part", "CreatedUserId", c => c.Int(nullable: false));
+            AlterColumn("dbo.Part", "PartId", c => c.Int(nullable: false, identity: true));
+            AlterColumn("dbo.Level", "projectId", c => c.Int(nullable: false));
+            DropColumn("dbo.Part", "CreatedBy_UserId");
+            DropColumn("dbo.Part", "User_UserId");
+            DropColumn("dbo.Part", "ApprovedUserId");
+            AddPrimaryKey("dbo.ProjectUser", new[] { "UserId", "ProjectId" });
+            AddPrimaryKey("dbo.ProjectPart", new[] { "ProjectId", "PartId" });
+            AddPrimaryKey("dbo.PartLevel", new[] { "PartId", "levelId" });
+            AddPrimaryKey("dbo.Project", "ProjectId");
+            AddPrimaryKey("dbo.User", "UserId");
+            AddPrimaryKey("dbo.Part", "PartId");
+            RenameIndex(table: "dbo.PartLevel", name: "IX_Level_levelId", newName: "IX_levelId");
+            RenameColumn(table: "dbo.ProjectUser", name: "Project_ProjectId", newName: "ProjectId");
+            RenameColumn(table: "dbo.ProjectUser", name: "User_UserId", newName: "UserId");
+            RenameColumn(table: "dbo.ProjectPart", name: "Part_PartId", newName: "PartId");
+            RenameColumn(table: "dbo.ProjectPart", name: "Project_ProjectId", newName: "ProjectId");
+            RenameColumn(table: "dbo.PartLevel", name: "Level_levelId", newName: "levelId");
+            RenameColumn(table: "dbo.PartLevel", name: "Part_PartId", newName: "PartId");
+            CreateIndex("dbo.PartLevel", "PartId");
+            CreateIndex("dbo.ProjectUser", "ProjectId");
+            CreateIndex("dbo.ProjectUser", "UserId");
+            CreateIndex("dbo.ProjectPart", "PartId");
+            CreateIndex("dbo.ProjectPart", "ProjectId");
+            CreateIndex("dbo.Part", "ApproveBy_UserId");
+            CreateIndex("dbo.Part", "CreatedUserId");
+            CreateIndex("dbo.Level", "projectId");
+            AddForeignKey("dbo.ProjectIdUserId", "ProjectId", "dbo.Project", "ProjectId", cascadeDelete: true);
+            AddForeignKey("dbo.PartProject", "ProjectId", "dbo.Project", "ProjectId", cascadeDelete: true);
+            AddForeignKey("dbo.Part", "ApproveBy_UserId", "dbo.User", "UserId");
+            AddForeignKey("dbo.ProjectIdUserId", "UserId", "dbo.User", "UserId", cascadeDelete: true);
+            AddForeignKey("dbo.PartLevel", "PartId", "dbo.Part", "PartId", cascadeDelete: true);
+            AddForeignKey("dbo.PartProject", "PartId", "dbo.Part", "PartId", cascadeDelete: true);
+            AddForeignKey("dbo.Part", "CreatedUserId", "dbo.User", "UserId", cascadeDelete: true);
+            AddForeignKey("dbo.Level", "projectId", "dbo.Project", "ProjectId", cascadeDelete: true);
+            RenameTable(name: "dbo.ProjectUser", newName: "ProjectIdUserId");
+            RenameTable(name: "dbo.ProjectPart", newName: "PartProject");
+        }
+    }
+}
