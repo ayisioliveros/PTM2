@@ -21,6 +21,11 @@ namespace TrackerModuleV1._0.Controllers
         //    return View(db.Inventories.ToList());
         //}
 
+        public ActionResult Home ()
+        {
+            return View(db.Inventories.ToList());
+        }
+
         public ActionResult Index (string sortOrder)
         {
             //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "PartName" : "";

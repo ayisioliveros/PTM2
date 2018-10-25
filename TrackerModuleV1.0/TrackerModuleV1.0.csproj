@@ -325,6 +325,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PTM\Inventory.cs" />
+    <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="Models\PTM\Level.cs" />
     <Compile Include="Models\PTM\Part.cs" />
     <Compile Include="Models\PTM\Project.cs" />
@@ -417,6 +418,7 @@
     <Content Include="Views\Parts\Details.cshtml" />
     <Content Include="Views\Parts\Edit.cshtml" />
     <Content Include="Views\Parts\Index.cshtml" />
+    <Content Include="Views\Inventories\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
