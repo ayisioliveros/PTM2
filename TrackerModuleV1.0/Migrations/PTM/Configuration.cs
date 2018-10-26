@@ -63,9 +63,9 @@ namespace TrackerModuleV1._0.Migrations.PTM
                 p =>  p.ProjectName, DummyData.getProjects().ToArray());
             context.SaveChanges();
 
-            context.Users.AddOrUpdate(
-                u => new { u.FirstName, u.LastName }, DummyData.getUsers().ToArray());
-            context.SaveChanges();
+            //context.Users.AddOrUpdate(
+            //    u => new { u.FirstName, u.LastName }, DummyData.getUsers().ToArray());
+            //context.SaveChanges();
 
             context.Parts.AddOrUpdate(
                 p => p.PartName, DummyData.getParts(context).ToArray());

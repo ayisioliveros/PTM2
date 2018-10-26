@@ -8,9 +8,9 @@ using TrackerModuleV1._0.Models.PTM;
 
 namespace TrackerModuleV1._0.Data
 {
-    public class PTMContex :DbContext
+    public class PTMContex : DbContext
     {
-        public PTMContex():base("DefaultConnection")
+        public PTMContex() : base("DefaultConnection")
         {
 
         }
@@ -70,9 +70,9 @@ namespace TrackerModuleV1._0.Data
                 .HasRequired<User>(p => p.CreatedBy)
                 .WithMany(u => u.Parts)
                 .HasForeignKey<string>(p => p.CreatedUserId);
-                
 
-           
+
+
 
             base.OnModelCreating(modelBuilder);
 

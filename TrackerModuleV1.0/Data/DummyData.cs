@@ -49,74 +49,74 @@ namespace TrackerModuleV1._0.Data
             return projects;
             
          }
-        public static List<User> getUsers()
-        {
-            List<User> users = new List<User>()
-            {
-                new User()
-                {
-                    UserId="EMP0001",
-                    FirstName="Leo",
-                    LastName="Passion",
-                    JobRole="Engineer",
+        //public static List<User> getUsers()
+        //{
+        //    List<User> users = new List<User>()
+        //    {
+        //        new User()
+        //        {
+        //            UserId="EMP0001",
+        //            FirstName="Leo",
+        //            LastName="Passion",
+        //            JobRole="Engineer",
                     
-                   // projects=new List<Project>()
-                    //ProjectNumber=context.Projects.Find(3).ProjectId,
+        //           // projects=new List<Project>()
+        //            //ProjectNumber=context.Projects.Find(3).ProjectId,
                     
-                },
-                new User()
-                {
-                    UserId="EMP0002",
-                    FirstName="Abienash",
-                    LastName="Thangavel",
-                    JobRole="Design Engineer",
-                     //projects=new List<Project>()
-                   // ProjectNumber=context.Projects.Find(1).ProjectId,
+        //        },
+        //        new User()
+        //        {
+        //            UserId="EMP0002",
+        //            FirstName="Abienash",
+        //            LastName="Thangavel",
+        //            JobRole="Design Engineer",
+        //             //projects=new List<Project>()
+        //           // ProjectNumber=context.Projects.Find(1).ProjectId,
 
-                },
-                new User()
-                {
-                    UserId="EMP003",
-                    FirstName="Alex",
-                    LastName="Daniel",
-                    JobRole="Design Engineer",
-                    // projects=new List<Project>()
-                    //ProjectNumber=context.Projects.Find(1).ProjectId,
+        //        },
+        //        new User()
+        //        {
+        //            UserId="EMP003",
+        //            FirstName="Alex",
+        //            LastName="Daniel",
+        //            JobRole="Design Engineer",
+        //            // projects=new List<Project>()
+        //            //ProjectNumber=context.Projects.Find(1).ProjectId,
 
-                },
-                new User()
-                {
-                    UserId="EMP0004",
-                    FirstName="Danny",
-                    LastName="Edward",
-                    JobRole="Design Engineer",
-                    // projects=new List<Project>()
-                    //ProjectNumber=context.Projects.Find(1).ProjectId,
+        //        },
+        //        new User()
+        //        {
+        //            UserId="EMP0004",
+        //            FirstName="Danny",
+        //            LastName="Edward",
+        //            JobRole="Design Engineer",
+        //            // projects=new List<Project>()
+        //            //ProjectNumber=context.Projects.Find(1).ProjectId,
 
-                },
-                new User()
-                {
-                    UserId="EMP0005",
-                    FirstName="Devinda",
-                    LastName="Liyanage",
-                    JobRole="R@D Engineer",
-                     //projects=new List<Project>()
-                   // ProjectNumber=context.Projects.Find(4).ProjectId,
+        //        },
+        //        new User()
+        //        {
+        //            UserId="EMP0005",
+        //            FirstName="Devinda",
+        //            LastName="Liyanage",
+        //            JobRole="R@D Engineer",
+        //             //projects=new List<Project>()
+        //           // ProjectNumber=context.Projects.Find(4).ProjectId,
 
-                },
-                new User()
-                {
-                    UserId="EMP0006",
-                    FirstName="Chamali",
-                    LastName="Liyanage",
-                    JobRole="R@D Engineer",
-                     //projects=new List<Project>()
-                   // ProjectNumber=context.Projects.Find(4).ProjectId,
+        //        },
+        //        new User()
+        //        {
+        //            UserId="EMP0006",
+        //            FirstName="Chamali",
+        //            LastName="Liyanage",
+        //            JobRole="R@D Engineer",
+        //             //projects=new List<Project>()
+        //           // ProjectNumber=context.Projects.Find(4).ProjectId,
 
-                }
-            };
-            return users;
-        }
+        //        }
+        //    };
+        //    return users;
+        //}
 
         public static List<Part> getParts(PTMContex contex)
         {
