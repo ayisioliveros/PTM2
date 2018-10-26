@@ -325,6 +325,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PTM\EnumClass.cs" />
     <Compile Include="Models\PTM\Inventory.cs" />
     <Compile Include="Models\PTM\Level.cs" />
     <Compile Include="Models\PTM\Part.cs" />
