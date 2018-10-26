@@ -136,11 +136,14 @@
     </table>*@
 @model IEnumerable<TrackerModuleV1._0.Models.PTM.Inventory>
 @{
+    Layout = "~/Views/Shared/_LayoutLoginPage.cshtml";
+}
+@{
     ViewBag.Title = "Inventory";
 }
 <h2>Inventory</h2>
 
-<table class="table table-bordered" width="100%">
+<table class="table table-bordered">
     <tr>
         <th>
             @Html.DisplayName("Proj")
@@ -203,11 +206,12 @@
             @Html.DisplayName("Safety Stk")
         </th>
         <th>
-            @Html.DisplayName("Rack No")
-        </th>
-        <th>
-            @Html.DisplayName("Line No")
-        </th>
+                @Html.DisplayName("Rack No")
+            </th>
+            <th>
+                @Html.DisplayName("Line No")
+            </th>
+
     </tr>
     @foreach (var item in Model)
     {
@@ -267,11 +271,13 @@
                 @Html.DisplayFor(modelItem => item.SafetyStock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RackNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LineNo)
-            </td>
+                    @Html.DisplayFor(modelItem => item.RackNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LineNo)
+                </td>
+            <td></td>
+            <td></td>
         </tr>
     }
 </table>
@@ -279,88 +285,88 @@
 <br />
 <br />
 
-<h3>Legend</h3>
-<table class="table table-bordered table-striped">
-    <tr>
-        <td><b>Proj</b></td>
-        <td>Project Name</td>
-    </tr>
-    <tr>
-        <td><b>Part Name</b></td>
-        <td>Part Name</td>
-    </tr>
-    <tr>
-        <td><b>Desc</b></td>
-        <td>Short Description</td>
-    </tr>
-    <tr>
-        <td><b>Store Loc</b></td>
-        <td>Store Location</td>
-    </tr>
-    <tr>
-        <td><b>Unit Price</b></td>
-        <td>Unit Price</td>
-    </tr>
-    <tr>
-        <td><b>Supplier</b></td>
-        <td>Name of the Supplier</td>
-    </tr>
-    <tr>
-        <td><b>Del Stat</b></td>
-        <td>Delivery Status</td>
-    </tr>
-    <tr>
-        <td><b>Del Date</b></td>
-        <td>Delivery Date</td>
-    </tr>
-    <tr>
-        <td><b>Open Ord Qty</b></td>
-        <td>Open Ordered Quantity</td>
-    </tr>
-    <tr>
-        <td><b>Qty In-Transit</b></td>
-        <td>Quantity In-Transit</td>
-    </tr>
-    <tr>
-        <td><b>Del Loc</b></td>
-        <td>Delivery Location</td>
-    </tr>
-    <tr>
-        <td><b>Del Qty</b></td>
-        <td>Delivery Quantity</td>
-    </tr>
-    <tr>
-        <td><b>UoM</b></td>
-        <td>Unit of Measurement</td>
-    </tr>
-    <tr>
-        <td><b>Used Qty</b></td>
-        <td>Used Quantity</td>
-    </tr>
-    <tr>
-        <td><b>Last Used Date</b></td>
-        <td>Last Used Date</td>
-    </tr>
-    <tr>
-        <td><b>Last User</b></td>
-        <td>Last User</td>
-    </tr>
-    <tr>
-        <td><b>Stk</b></td>
-        <td>Stock</td>
-    </tr>
-    <tr>
-        <td><b>Safety Stk</b></td>
-        <td>Safety Stk</td>
-    </tr>
-    <tr>
-        <td><b>Rack No</b></td>
-        <td>Rack Number</td>
-    </tr>
-    <tr>
-        <td><b>Line No</b></td>
-        <td>Line Number</td>
-    </tr>
+@*<h3>Legend</h3>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td><b>Proj</b></td>
+            <td>Project Name</td>
+        </tr>
+        <tr>
+            <td><b>Part Name</b></td>
+            <td>Part Name</td>
+        </tr>
+        <tr>
+            <td><b>Desc</b></td>
+            <td>Short Description</td>
+        </tr>
+        <tr>
+            <td><b>Store Loc</b></td>
+            <td>Store Location</td>
+        </tr>
+        <tr>
+            <td><b>Unit Price</b></td>
+            <td>Unit Price</td>
+        </tr>
+        <tr>
+            <td><b>Supplier</b></td>
+            <td>Name of the Supplier</td>
+        </tr>
+        <tr>
+            <td><b>Del Stat</b></td>
+            <td>Delivery Status</td>
+        </tr>
+        <tr>
+            <td><b>Del Date</b></td>
+            <td>Delivery Date</td>
+        </tr>
+        <tr>
+            <td><b>Open Ord Qty</b></td>
+            <td>Open Ordered Quantity</td>
+        </tr>
+        <tr>
+            <td><b>Qty In-Transit</b></td>
+            <td>Quantity In-Transit</td>
+        </tr>
+        <tr>
+            <td><b>Del Loc</b></td>
+            <td>Delivery Location</td>
+        </tr>
+        <tr>
+            <td><b>Del Qty</b></td>
+            <td>Delivery Quantity</td>
+        </tr>
+        <tr>
+            <td><b>UoM</b></td>
+            <td>Unit of Measurement</td>
+        </tr>
+        <tr>
+            <td><b>Used Qty</b></td>
+            <td>Used Quantity</td>
+        </tr>
+        <tr>
+            <td><b>Last Used Date</b></td>
+            <td>Last Used Date</td>
+        </tr>
+        <tr>
+            <td><b>Last User</b></td>
+            <td>Last User</td>
+        </tr>
+        <tr>
+            <td><b>Stk</b></td>
+            <td>Stock</td>
+        </tr>
+        <tr>
+            <td><b>Safety Stk</b></td>
+            <td>Safety Stk</td>
+        </tr>
+        <tr>
+            <td><b>Rack No</b></td>
+            <td>Rack Number</td>
+        </tr>
+        <tr>
+            <td><b>Line No</b></td>
+            <td>Line Number</td>
+        </tr>
 
-</table>
+    </table>*@
 
