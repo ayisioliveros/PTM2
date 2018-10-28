@@ -337,12 +337,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ImportDefaultDll.csproj.user" />
     <Content Include="App_Data\PTM.mdf" />
-    <Content Include="App_Data\PTM.mdf.csproj" />
-    <Content Include="App_Data\PTM_log.ldf">
-      <DependentUpon>PTM.mdf</DependentUpon>
-    </Content>
+    <Content Include="App_Data\PTM_log.ldf" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\inventory.png" />
