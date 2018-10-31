@@ -73,7 +73,18 @@
         <dd>
             @Html.DisplayFor(model => model.StockQuantity)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FilePath)
+        </dt>
+        <dd>
+            @{if (ViewBag.FilePath != null)
+                {
+                    var link = @Url.Content(ViewBag.FilePath);
+                    <a href="@link">@Html.DisplayFor(model => model.FileName)</a>
+                }
+            }
 
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Status)
         </dt>

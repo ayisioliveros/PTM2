@@ -321,6 +321,10 @@
     <Compile Include="Migrations\PTM\201810221147286_add Inventory table.Designer.cs">
       <DependentUpon>201810221147286_add Inventory table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\PTM\201810290816215_Add_upload_file_into_part.cs" />
+    <Compile Include="Migrations\PTM\201810290816215_Add_upload_file_into_part.Designer.cs">
+      <DependentUpon>201810290816215_Add_upload_file_into_part.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\PTM\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -423,9 +427,11 @@
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Users\Register.cshtml" />
     <Content Include="Views\Users\LoggedIn.cshtml" />
+    <Content Include="Views\Shared\DisplaySubcategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\AttachmentsPart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -540,6 +546,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\PTM\201810221147286_add Inventory table.resx">
       <DependentUpon>201810221147286_add Inventory table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\PTM\201810290816215_Add_upload_file_into_part.resx">
+      <DependentUpon>201810290816215_Add_upload_file_into_part.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
